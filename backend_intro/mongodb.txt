@@ -1,0 +1,3 @@
+rSuhogHWPCZ1dVMp
+
+mongodb+srv://k2035920359_db_user:rSuhogHWPCZ1dVMp@cluster0.sb0z6re.mongodb.net/
