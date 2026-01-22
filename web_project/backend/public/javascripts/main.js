@@ -19,6 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(data);
             document.getElementById('result').textContent =
             JSON.stringify(data, null, 2);
+            
+    });
+
+
+    document.getElementById('btnCreateUser').addEventListener('click', () => {
+        fetch('/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: 'New User' })
+        })
+        
     });
 
   });

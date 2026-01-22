@@ -5,26 +5,8 @@ const router = express.Router()
  * GET /index/hello
  * Test hello world endpoint
  */
-router.get('/hello', function (req, res) {
-  const data = { 
-    message: 'Hello',
-    timestamp: Date.now() 
-  };
+const indexController = require('../../controllers/index.controllers');
 
-  res.json(data);
-});
-
-/**
- * GET /index/health
- * check system health
- */
-router.get('/health', function (req, res) {
-  const data = { 
-    message: 'Everything is ok',
-    timestamp: Date.now() 
-  };
-
-  res.json(data);
-});
+router.get('/hello', indexController.hello);
 
 module.exports = router;
