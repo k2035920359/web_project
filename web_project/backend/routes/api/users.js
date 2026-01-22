@@ -1,12 +1,11 @@
-var express = require('express');
-const app = require('../../app');
-var app = express.app();
+const express = require('express');
+const router = express.Router();
 
 /**
- * GET /users/list
+ * GET /users
  * 取得使用者列表
  */
-app.get('/list', function (req, res) {
+router.get('/', function (req, res) {
   res.json({
     success: true,
     data: [
@@ -20,7 +19,7 @@ app.get('/list', function (req, res) {
  * GET /users/:id
  * 取得單一使用者
  */
-app.get('/:id', function (req, res) {
+router.get('/:id', function (req, res) {
   const userId = req.params.id;
 
   res.json({
@@ -33,4 +32,4 @@ app.get('/:id', function (req, res) {
   });
 });
 
-module.exports = app;
+module.exports = router;

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const result = document.getElementById('result');
 
     document.getElementById('btnHello').addEventListener('click', () => {
-        fetch('/routes/api/index.js/hello')
+        fetch('/api/hello')    //hello
         .then(res => res.json())
         .then(data => {
             result.textContent = JSON.stringify(data, null, 2);
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     document.getElementById('btnUsers').addEventListener('click', () => {
-        fetch('/routes/api/users.js/list')
+        fetch('/api/users')  //users
         .then(res => res.json())
         .then(data => {
             console.log(data);

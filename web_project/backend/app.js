@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/api/index');
 var usersRouter = require('./routes/api/users');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/routes/api/index', indexRouter);
-app.use('/routes/api/users', usersRouter);
+app.use('/api', indexRouter);
+app.use('/api/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

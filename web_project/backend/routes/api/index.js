@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express.app();
+const express = require('express');
+const router = express.Router()
 
 /**
  * GET /index/hello
- * 系統測試
+ * Test hello world endpoint
  */
-app.get('/hello', function (req, res) {
+router.get('/hello', function (req, res) {
   const data = { 
     message: 'Hello',
     timestamp: Date.now() 
@@ -16,9 +16,9 @@ app.get('/hello', function (req, res) {
 
 /**
  * GET /index/health
- * 健康檢查
+ * check system health
  */
-app.get('/health', function (req, res) {
+router.get('/health', function (req, res) {
   const data = { 
     message: 'Everything is ok',
     timestamp: Date.now() 
@@ -27,4 +27,4 @@ app.get('/health', function (req, res) {
   res.json(data);
 });
 
-module.exports = app;
+module.exports = router;
