@@ -34,5 +34,43 @@ document.addEventListener('DOMContentLoaded', () => {
         
     });
 
-  });
-});
+    document.getElementById('btnUpdateUser').addEventListener('click', () => {
+        fetch('/api/users/1', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: 'Updated User' })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('result').textContent =
+            JSON.stringify(data, null, 2);
+        });
+    });
+
+    document.getElementById('btnDeleteUser').addEventListener('click', () => {
+        fetch('/api/users/1', {
+            method: 'DELETE'
+        })
+        .then(res => {
+            if (res.status === 204) {
+                document.getElementById('result').textContent = 'User deleted successfully';
+            } else {
+                document.getElementById('result').textContent = 'Failed to delete user';
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+})});
