@@ -46,8 +46,16 @@ exports.updateUser = (req, res) => {
 
 
 exports.deleteUser = (req, res) => {
-  // 刪除使用者的邏輯（此處省略）
-  res.status(204).send();
+  const userId = req.params.id;
+  const deleteUser = userService.deleteUser(userId);
+
+  if (!deleteUser) {
+    return res.status(404).json({
+      error: 'User not found'
+    });
+  }
+  res.json(deleteUser);
+  res.status(200).send();
 };
   
 
