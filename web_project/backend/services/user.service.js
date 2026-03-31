@@ -13,8 +13,9 @@ function getUserById(id) {
 }
 
 function createUser(name) {
+  const maxId = users.length > 0 ? Math.max(...users.map(u => u.id)) : 0;
   const newUser = {
-    id: users.length + 1,
+    id: maxId + 1,
     name
   };
   users.push(newUser);
@@ -28,12 +29,10 @@ function updateUser(id, name) {
   return user;
 }
 
-function deleteUser(id, name) {
+function deleteUser(id) {
   const index = users.findIndex(u => u.id === Number(id));
   if (index === -1) return false;
   users.splice(index, 1);
-  users.push({ id: Number(id), name });
-
   return true;
 }
 
